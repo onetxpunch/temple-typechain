@@ -1,0 +1,4 @@
+[submodule "lib/temple"]
+	path = lib/temple
+	url = https://github.com/templedao/temple
+	branch = stage

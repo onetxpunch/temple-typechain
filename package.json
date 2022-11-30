@@ -1,0 +1,27 @@
+{
+  "name": "temple-typechain",
+  "version": "1.0.0",
+  "author": "punch <117326984+onetxpunch@users.noreply.github.com>",
+  "license": "MIT",
+  "files": [
+    "dist/"
+  ],
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "scripts": {
+    "submodule-update-all": "git submodule update --recursive --init && git submodule foreach --recursive git fetch --recurse-submodules",
+    "forge-build": "forge build --root lib/temple/protocol --out $PWD/out --skip test script",
+    "typechain-types": "rm -rf types && yarn typechain --glob \"lib/temple/protocol/artifacts/**/*.json\" --target ethers-v5",
+    "tsc-pack": "rm -rf dist/* && yarn tsc && yarn pack",
+    "pub": "yarn typechain-types && yarn tsc-pack && yarn publish"
+  },
+  "dependencies": {
+    "ethers": "^5.7.2"
+  },
+  "devDependencies": {
+    "@typechain/ethers-v5": "^10.1.1",
+    "@types/node": "^18.11.9",
+    "typechain": "^8.1.1",
+    "typescript": "^4.9.3"
+  }
+}
